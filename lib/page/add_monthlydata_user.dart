@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:posrem_webapp/components/button_create_user.dart';
 import 'package:posrem_webapp/controller/input_controller.dart';
-import 'package:posrem_webapp/database/firebase_database.dart';
-import 'package:posrem_webapp/page/home_user.dart';
-import 'package:posrem_webapp/provider/list_provider.dart';
-import 'package:provider/provider.dart';
 
 class AddMonthlyData extends StatelessWidget {
   const AddMonthlyData({
@@ -26,6 +23,36 @@ class AddMonthlyData extends StatelessWidget {
             children: [
               const Text('Add Monthly Data'),
               TextFormField(
+                controller: tbController,
+                decoration: const InputDecoration(
+                  label: Text('Tinggi Badan'),
+                ),
+              ),
+              TextFormField(
+                controller: bbController,
+                decoration: const InputDecoration(
+                  label: Text('Berat Badan'),
+                ),
+              ),
+              TextFormField(
+                controller: tdController,
+                decoration: const InputDecoration(
+                  label: Text('Tekanan Darah'),
+                ),
+              ),
+              TextFormField(
+                controller: lilaController,
+                decoration: const InputDecoration(
+                  label: Text('Lingkar Lengan'),
+                ),
+              ),
+              TextFormField(
+                controller: lpController,
+                decoration: const InputDecoration(
+                  label: Text('Lingkar Perut'),
+                ),
+              ),
+              TextFormField(
                 controller: bmiController,
                 decoration: const InputDecoration(
                   label: Text('BMI'),
@@ -40,33 +67,13 @@ class AddMonthlyData extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  try {
-                    DatabaseServices().addMonthlyData(
-                      bmiController.text,
-                      bmiDescController.text,
-                      id,
-                    );
-
-                    context.read<ListProvider>().fethAllUser();
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ));
-
-                    bmiController.clear();
-                    bmiDescController.clear();
-                    idController.clear();
-                  } catch (e) {
-                    AlertDialog(title: Text(e.toString()));
-                  }
-                },
-                child: const Text("Monthly Updated"),
-              ),
+              submitMonthlyData(context, id),
             ],
           ),
         ),
       ),
     );
   }
+
+  
 }

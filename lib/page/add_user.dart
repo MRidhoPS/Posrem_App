@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:posrem_webapp/components/button_create_user.dart';
 import 'package:posrem_webapp/controller/input_controller.dart';
-import 'package:posrem_webapp/database/firebase_database.dart';
-import 'package:posrem_webapp/page/home_user.dart';
-import 'package:posrem_webapp/provider/list_provider.dart';
-import 'package:provider/provider.dart';
 
 class AddUser extends StatelessWidget {
   const AddUser({super.key});
@@ -17,8 +14,9 @@ class AddUser extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: SizedBox(
             width: 500,
-            height: 200,
+            height: double.infinity,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const Text('Add User'),
                 TextFormField(
@@ -28,36 +26,45 @@ class AddUser extends StatelessWidget {
                   ),
                 ),
                 TextFormField(
-                  controller: maritalController, // Gunakan controller
+                  controller: genderController, // Gunakan controller
                   decoration: const InputDecoration(
-                    label: Text('Marital Status'),
+                    label: Text('Gender'),
+                  ),
+                ),
+                TextFormField(
+                  controller: bornController, // Gunakan controller
+                  decoration: const InputDecoration(
+                    label: Text('Born'),
+                  ),
+                ),
+                TextFormField(
+                  controller: religionController, // Gunakan controller
+                  decoration: const InputDecoration(
+                    label: Text('Religion'),
+                  ),
+                ),
+                TextFormField(
+                  controller: addressController, // Gunakan controller
+                  decoration: const InputDecoration(
+                    label: Text('Address'),
+                  ),
+                ),
+                TextFormField(
+                  controller: educationController, // Gunakan controller
+                  decoration: const InputDecoration(
+                    label: Text('Education'),
+                  ),
+                ),
+                TextFormField(
+                  controller: phoneNumController, // Gunakan controller
+                  decoration: const InputDecoration(
+                    label: Text('Phone Number'),
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    try {
-                      DatabaseServices().createUser(
-                        nameController.text,
-                        maritalController.text,
-                      );
-
-                      context.read<ListProvider>().fethAllUser();
-
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePage(),
-                          ));
-                      print('Add Data Press');
-                    } catch (e) {
-                      AlertDialog(title: Text(e.toString()));
-                    }
-                  },
-                  child: const Text("Add User"),
-                ),
+                submitAddUser(context),
               ],
             ),
           ),
@@ -65,4 +72,6 @@ class AddUser extends StatelessWidget {
       ),
     );
   }
+
+  
 }

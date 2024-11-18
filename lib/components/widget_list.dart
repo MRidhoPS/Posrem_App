@@ -33,9 +33,7 @@ class DataUsers extends StatelessWidget {
                       ),
                     );
                   },
-                  trailing: Text(user['id']),
                   title: Text(user['name'] ?? 'No Name'),
-                  subtitle: Text('Marital: ${user['marital'] ?? 'No marital'}'),
                 );
               },
             );

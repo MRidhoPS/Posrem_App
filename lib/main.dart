@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:posrem_webapp/firebase_options.dart';
 import 'package:posrem_webapp/page/home_user.dart';
+import 'package:posrem_webapp/provider/detailuser_provider.dart';
 import 'package:posrem_webapp/provider/list_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +17,9 @@ void main() async {
       providers: [
         ChangeNotifierProvider(
           create: (context) => ListProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DetailuserProvider(),
         )
       ],
       child: const MyApp(),
