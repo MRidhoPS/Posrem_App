@@ -13,15 +13,18 @@ class AddMonthlyData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Add Monthly Data'),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SizedBox(
           width: 500,
           height: 500,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Add Monthly Data'),
+              
               TextFormField(
                 controller: tbController,
                 decoration: const InputDecoration(

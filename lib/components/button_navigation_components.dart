@@ -10,7 +10,7 @@ class ButtonNavComponents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(15.0),
+      padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -54,14 +54,23 @@ class ButtonNavigation extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.2,
         width: MediaQuery.of(context).size.width * 0.4,
         decoration: BoxDecoration(
-            color: Colors.black, borderRadius: BorderRadius.circular(15)),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 4,
+                  spreadRadius: 1,
+                  blurStyle: BlurStyle.normal,
+                  offset: Offset(2, 3))
+            ]),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
               icons,
-              color: Colors.white,
+              color: Colors.black,
               size: 30,
             ),
             const SizedBox(
@@ -71,7 +80,7 @@ class ButtonNavigation extends StatelessWidget {
               text,
               style: const TextStyle(
                 fontSize: 16,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ],

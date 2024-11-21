@@ -54,12 +54,12 @@ class DetailUser extends StatelessWidget {
                     Text('Address: ${data['address']}'),
                     Text('Education: ${data['education']}'),
                     Text('Phone Number: ${data['phoneNum']}'),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 25),
                     const Text(
                       'Monthly Data:',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 15),
                     Expanded(
                       child: ListView.builder(
                         itemCount: monthlyData.length,
@@ -67,18 +67,21 @@ class DetailUser extends StatelessWidget {
                           var entry = monthlyData[index];
 
                           return Card(
-                            child: ListTile(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          DetailData(data: entry),
-                                    ));
-                              },
-                              title: Text(Formatter().formatDate(
-                                entry,
-                              )),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 20, 0, 20),
+                              child: ListTile(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            DetailData(data: entry),
+                                      ));
+                                },
+                                title: Text(Formatter().formatDate(
+                                  entry,
+                                )),
+                              ),
                             ),
                           );
                         },

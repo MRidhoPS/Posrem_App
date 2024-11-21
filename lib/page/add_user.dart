@@ -8,7 +8,9 @@ class AddUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Add User'),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -18,7 +20,6 @@ class AddUser extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text('Add User'),
                 TextFormField(
                   controller: nameController, // Gunakan controller
                   decoration: const InputDecoration(
@@ -72,6 +73,4 @@ class AddUser extends StatelessWidget {
       ),
     );
   }
-
-  
 }
