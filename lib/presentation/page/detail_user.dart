@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:posrem_webapp/data/controller/formatter.dart';
 import 'package:posrem_webapp/presentation/page/add_monthlydata_user.dart';
 import 'package:posrem_webapp/presentation/page/detail_data.dart';
@@ -34,7 +35,6 @@ class DetailUser extends StatelessWidget {
                   var entry = value as Map<String, dynamic>;
                   monthlyData.add(entry);
                 });
-                // Sort monthly data by `createdAt`
                 monthlyData.sort((a, b) {
                   DateTime dateA = a['createdAt'].toDate();
                   DateTime dateB = b['createdAt'].toDate();
@@ -44,50 +44,60 @@ class DetailUser extends StatelessWidget {
 
               return Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Name: ${data['name']}'),
-                    Text('Gender: ${data['gender']}'),
-                    Text('Born: ${data['born']}'),
-                    Text('Religion: ${data['religion']}'),
-                    Text('Address: ${data['address']}'),
-                    Text('Education: ${data['education']}'),
-                    Text('Phone Number: ${data['phoneNum']}'),
-                    const SizedBox(height: 25),
-                    const Text(
-                      'Monthly Data:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 15),
-                    Expanded(
-                      child: ListView.builder(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      WidgetUsers(data: data, title: 'Name', type: 'name'),
+                      WidgetUsers(data: data, title: 'Gender', type: 'gender'),
+                      WidgetUsers(data: data, title: 'Born', type: 'born'),
+                      WidgetUsers(
+                          data: data, title: 'Religion', type: 'religion'),
+                      WidgetUsers(
+                          data: data, title: 'Address', type: 'address'),
+                      WidgetUsers(
+                          data: data, title: 'Education', type: 'education'),
+                      WidgetUsers(
+                          data: data, title: 'Phone Number', type: 'phoneNum'),
+                      const SizedBox(height: 30),
+                      const Text(
+                        'Monthly Data:',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                      const SizedBox(height: 15),
+                      ListView.builder(
+                        physics:
+                            const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true, 
                         itemCount: monthlyData.length,
                         itemBuilder: (context, index) {
                           var entry = monthlyData[index];
-
                           return Card(
                             child: Padding(
                               padding: const EdgeInsets.fromLTRB(10, 20, 0, 20),
                               child: ListTile(
                                 onTap: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            DetailData(data: entry),
-                                      ));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailData(
+                                        data: entry,
+                                        title: Formatter().formatDate(entry),
+                                      ),
+                                    ),
+                                  );
                                 },
-                                title: Text(Formatter().formatDate(
-                                  entry,
-                                )),
+                                title: Text(
+                                  Formatter().formatDate(entry),
+                                ),
                               ),
                             ),
                           );
                         },
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             }
@@ -100,7 +110,6 @@ class DetailUser extends StatelessWidget {
               builder: (context) => AddMonthlyData(id: userId),
             ))
                 .then((_) {
-              // Refresh data when returning to this page
               if (context.mounted) {
                 context.read<DetailuserProvider>().fetchDetailUser(userId);
               }
@@ -108,6 +117,44 @@ class DetailUser extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
+      ),
+    );
+  }
+}
+
+class WidgetUsers extends StatelessWidget {
+  const WidgetUsers({
+    super.key,
+    required this.data,
+    required this.title,
+    required this.type,
+  });
+
+  final Map<String, dynamic> data;
+  final String title;
+  final String type;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '$title:',
+            style:
+                GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w500),
+          ),
+          Text(
+            '${data[type]}',
+            style: GoogleFonts.poppins(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          )
+        ],
       ),
     );
   }
