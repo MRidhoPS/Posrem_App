@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/controller/formatter.dart';
-import 'package:posrem_webapp/page/add_monthlydata_user.dart';
-import 'package:posrem_webapp/page/detail_data.dart';
-import 'package:posrem_webapp/provider/detailuser_provider.dart';
+import 'package:posrem_webapp/data/controller/formatter.dart';
+import 'package:posrem_webapp/presentation/page/add_monthlydata_user.dart';
+import 'package:posrem_webapp/presentation/page/detail_data.dart';
+import 'package:posrem_webapp/presentation/provider/detailuser_provider.dart';
 import 'package:provider/provider.dart';
 
 class DetailUser extends StatelessWidget {

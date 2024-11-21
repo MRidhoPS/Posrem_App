@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/database/firebase_database.dart';
+import 'package:posrem_webapp/data/datasources/firebase_database.dart';
 
 class DetailuserProvider  extends ChangeNotifier{
   Map<String, dynamic>? usersDetails;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/page/detail_user.dart';
-import 'package:posrem_webapp/provider/list_provider.dart';
+import 'package:posrem_webapp/presentation/page/detail_user.dart';
+import 'package:posrem_webapp/presentation/provider/list_provider.dart';
 import 'package:provider/provider.dart';
 
 class DataUsers extends StatelessWidget {

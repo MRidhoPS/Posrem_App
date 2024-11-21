@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/components/button_navigation_components.dart';
-import 'package:posrem_webapp/components/top_banner.dart';
+import 'package:posrem_webapp/presentation/components/button_navigation_components.dart';
+import 'package:posrem_webapp/presentation/components/top_banner.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

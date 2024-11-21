@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/controller/input_controller.dart';
-import 'package:posrem_webapp/database/firebase_database.dart';
-import 'package:posrem_webapp/page/home_user.dart';
-import 'package:posrem_webapp/provider/list_provider.dart';
+import 'package:posrem_webapp/data/controller/input_controller.dart';
+import 'package:posrem_webapp/data/datasources/firebase_database.dart';
+import 'package:posrem_webapp/presentation/page/home_user.dart';
+import 'package:posrem_webapp/presentation/provider/list_provider.dart';
 import 'package:provider/provider.dart';
 
 ElevatedButton submitAddUser(BuildContext context) {

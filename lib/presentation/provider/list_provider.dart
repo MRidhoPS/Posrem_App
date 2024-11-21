@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/database/firebase_database.dart';
+import 'package:posrem_webapp/data/datasources/firebase_database.dart';
 
 class ListProvider extends ChangeNotifier{
   final DatabaseServices _databaseServices = DatabaseServices();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/components/widget_list.dart';
-import 'package:posrem_webapp/page/add_user.dart';
+import 'package:posrem_webapp/presentation/components/widget_list.dart';
+import 'package:posrem_webapp/presentation/page/add_user.dart';
 
 class ButtonNavComponents extends StatelessWidget {
   const ButtonNavComponents({

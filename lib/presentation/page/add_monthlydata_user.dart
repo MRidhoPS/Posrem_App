@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/components/button_create_user.dart';
-import 'package:posrem_webapp/controller/input_controller.dart';
+import 'package:posrem_webapp/presentation/components/button_create_user.dart';
+import 'package:posrem_webapp/data/controller/input_controller.dart';
 
 class AddMonthlyData extends StatelessWidget {
   const AddMonthlyData({
