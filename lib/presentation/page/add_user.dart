@@ -21,43 +21,43 @@ class AddUser extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextFormField(
-                  controller: nameController, // Gunakan controller
+                  controller: nameController,
                   decoration: const InputDecoration(
                     label: Text('Name'),
                   ),
                 ),
                 TextFormField(
-                  controller: genderController, // Gunakan controller
+                  controller: genderController,
                   decoration: const InputDecoration(
                     label: Text('Gender'),
                   ),
                 ),
                 TextFormField(
-                  controller: bornController, // Gunakan controller
+                  controller: bornController,
                   decoration: const InputDecoration(
                     label: Text('Born'),
                   ),
                 ),
                 TextFormField(
-                  controller: religionController, // Gunakan controller
+                  controller: religionController,
                   decoration: const InputDecoration(
                     label: Text('Religion'),
                   ),
                 ),
                 TextFormField(
-                  controller: addressController, // Gunakan controller
+                  controller: addressController,
                   decoration: const InputDecoration(
                     label: Text('Address'),
                   ),
                 ),
                 TextFormField(
-                  controller: educationController, // Gunakan controller
+                  controller: educationController,
                   decoration: const InputDecoration(
                     label: Text('Education'),
                   ),
                 ),
                 TextFormField(
-                  controller: phoneNumController, // Gunakan controller
+                  controller: phoneNumController,
                   decoration: const InputDecoration(
                     label: Text('Phone Number'),
                   ),

@@ -5,7 +5,6 @@ import 'package:posrem_webapp/presentation/page/myapp.dart';
 import 'package:posrem_webapp/presentation/provider/detailuser_provider.dart';
 import 'package:posrem_webapp/presentation/provider/list_provider.dart';
 import 'package:provider/provider.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

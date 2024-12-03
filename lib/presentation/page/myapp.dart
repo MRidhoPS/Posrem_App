@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 243, 250, 255),
         ),
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }

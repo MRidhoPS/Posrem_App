@@ -24,7 +24,6 @@ class AddMonthlyData extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              
               TextFormField(
                 controller: tbController,
                 decoration: const InputDecoration(

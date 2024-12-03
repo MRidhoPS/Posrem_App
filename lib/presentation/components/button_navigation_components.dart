@@ -11,18 +11,22 @@ class ButtonNavComponents extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          ButtonNavigation(
-            targetScreen: AddUser(),
-            icons: Icons.person_2_rounded,
-            text: "Create Users",
-          ),
-          ButtonNavigation(
-            targetScreen: DataUsers(),
-            icons: Icons.data_object_rounded,
-            text: "Add Monthly Data",
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ButtonNavigation(
+                targetScreen: AddUser(),
+                icons: Icons.person_2_rounded,
+                text: "Create Users",
+              ),
+              ButtonNavigation(
+                targetScreen: DataUsers(),
+                icons: Icons.data_object_rounded,
+                text: "Add Monthly Data",
+              ),
+            ],
           ),
         ],
       ),

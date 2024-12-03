@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class DatabaseServices {
   final db = FirebaseFirestore.instance;
@@ -90,12 +91,8 @@ class DatabaseServices {
           });
         }
       });
-    } catch (e, stackTrace) {
-      print("Error during transaction: $e");
-      print("Stack trace: $stackTrace");
-    }
+    } catch (e) {}
   }
-
 
   Future<List<Map<String, dynamic>>> fetchAllUser() async {
     QuerySnapshot querySnapshot =
@@ -115,5 +112,43 @@ class DatabaseServices {
       throw Exception('User not found');
     }
     return {'id': doc.id, ...doc.data() as Map<String, dynamic>};
+  }
+
+  Future<Map<String, dynamic>?> searchPatientByNameAndGender(
+      String name, String gender) async {
+    try {
+      // Query ke Firestore berdasarkan nama dan gender
+      final querySnapshot = await FirebaseFirestore.instance
+          .collection('users')
+          .where('name', isEqualTo: name)
+          .where('gender', isEqualTo: gender)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        // Ambil data pertama dari hasil query
+        return querySnapshot.docs.first.data();
+      } else {
+        print("Data pasien tidak ditemukan!");
+        return null;
+      }
+    } catch (e) {
+      print("Terjadi kesalahan: $e");
+      return null;
+    }
+  }
+
+  Future<void> loginUser(String email, String password) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+          // User is signed in
+      print('User signed in: ${credential.user!.email}');
+     } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
   }
 }
