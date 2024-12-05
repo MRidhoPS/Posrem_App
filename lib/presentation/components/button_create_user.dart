@@ -47,6 +47,7 @@ ElevatedButton submitMonthlyData(BuildContext context, id) {
           lpController.text,
           bmiController.text,
           bmiDescController.text,
+          dateController.text,
         );
 
         context.read<ListProvider>().fethAllUser();
@@ -61,6 +62,7 @@ ElevatedButton submitMonthlyData(BuildContext context, id) {
         lpController.clear();
         bmiController.clear();
         bmiDescController.clear();
+        dateController.clear();
       } catch (e) {
         AlertDialog(title: Text(e.toString()));
       }

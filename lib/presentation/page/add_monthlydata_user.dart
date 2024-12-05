@@ -66,6 +66,12 @@ class AddMonthlyData extends StatelessWidget {
                   label: Text('BMI Description'),
                 ),
               ),
+              TextFormField(
+                controller: dateController,
+                decoration: const InputDecoration(
+                  label: Text('Date'),
+                ),
+              ),
               const SizedBox(
                 height: 10,
               ),
