@@ -47,7 +47,6 @@ ElevatedButton submitMonthlyData(BuildContext context, id) {
           lpController.text,
           bmiController.text,
           bmiDescController.text,
-          dateController.text,
         );
 
         context.read<ListProvider>().fethAllUser();

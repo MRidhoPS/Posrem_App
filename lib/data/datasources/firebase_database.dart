@@ -41,7 +41,6 @@ class DatabaseServices {
     String lp,
     String bmi,
     String bmiDesc,
-    String createdDate,
   ) async {
     final userDocRef = db.collection('users').doc(id);
     final newEntryId = 'entry_${DateTime.now().millisecondsSinceEpoch}';
@@ -65,8 +64,7 @@ class DatabaseServices {
             'lp': lp,
             'bmi': bmi,
             'bmiDesc': bmiDesc,
-            // 'createdAt': Timestamp.now(),
-            'createdAt': '$createdDate at 11:25:02 PM UTC+7'
+            'createdAt': Timestamp.now(),
           };
 
           userDataEntries[newEntryId] = newEntry;
@@ -86,8 +84,7 @@ class DatabaseServices {
                 'lp': lp,
                 'bmi': bmi,
                 'bmiDesc': bmiDesc,
-                // 'createdAt': Timestamp.now(),
-                'createdAt': '$createdDate at 11:25:02 PM UTC+7'
+                'createdAt': Timestamp.now(),
               },
             },
             'dataCounter': 1, // Initialize the counter
