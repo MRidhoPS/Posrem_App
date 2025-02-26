@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:posrem_webapp/data/controller/formatter.dart';
+import 'package:posrem_webapp/presentation/components/available_years.dart';
 import 'package:posrem_webapp/presentation/components/widget_user.dart';
 import 'package:posrem_webapp/presentation/page/add_monthlydata_user.dart';
-import 'package:posrem_webapp/presentation/page/detail_data.dart';
 import 'package:posrem_webapp/presentation/provider/detailuser_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -59,43 +58,8 @@ class DetailUser extends StatelessWidget {
                           data: data, title: 'Education', type: 'education'),
                       WidgetUsers(
                           data: data, title: 'Phone Number', type: 'phoneNum'),
-                      const SizedBox(height: 30),
-                      const Text(
-                        'Monthly Data:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
-                      ),
                       const SizedBox(height: 15),
-                      ListView.builder(
-                        physics:
-                            const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true, 
-                        itemCount: monthlyData.length,
-                        itemBuilder: (context, index) {
-                          var entry = monthlyData[index];
-                          return Card(
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 20, 0, 20),
-                              child: ListTile(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DetailData(
-                                        data: entry,
-                                        title: Formatter().formatDate(entry),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                title: Text(
-                                  Formatter().formatDate(entry),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                      AvailableYearsSection(provider: provider, userId: userId)
                     ],
                   ),
                 ),

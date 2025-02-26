@@ -76,6 +76,4 @@ class AddMonthlyData extends StatelessWidget {
       ),
     );
   }
-
-  
 }
